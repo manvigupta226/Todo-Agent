@@ -1,0 +1,19 @@
+agent:
+  name: todo-agent
+  description: "ADK agent to manage Postgres TODOs via tools"
+  model:
+    provider: google
+    name: gemini-proto-1
+
+tools:
+  - module: src.tools.create_todo
+  - module: src.tools.list_todos
+  - module: src.tools.update_todo
+  - module: src.tools.delete_todo
+
+memory:
+  - type: session
+
+settings:
+  tool_calling:
+    mode: mcp
